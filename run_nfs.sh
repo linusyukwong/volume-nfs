@@ -46,11 +46,11 @@ function start()
     mount -t nfsd nfsd /proc/fs/nfsd
 
     # enable NFSv3, NFSv4
-    rpc.mountd -N 2 -V 3 -V 4
+    rpc.mountd
 
     exportfs -r
     # -G 10 to reduce grace time to 10 seconds (the lowest allowed)
-    rpc.nfsd -G 10 -V 3 -V 4
+    rpc.nfsd
     rpc.statd --no-notify
     echo "NFS started"
 }
